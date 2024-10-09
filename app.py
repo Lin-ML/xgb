@@ -177,7 +177,7 @@ def run():
                 dtest = xgb.DMatrix(new_data)  # 转换为 DMatrix     
                 with st.spinner(text='Predict The Value..'):
 
-                    predicted_value = model.predict([dtest])[0]
+                    predicted_value = model.predict(dtest)[0]
                     sleep(1.2)
 
                     st.image("imgs/heartbeat.png", caption="", width=100)
