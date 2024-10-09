@@ -144,42 +144,41 @@ def run():
 
     with content:
         col1 = st.columns([7, 5])
-
-        with col1:
-            with st.form("Preidct"):
-                c1, c2, c3 = st.columns(3)
-                with c1:
-                    age = st.number_input('Age', min_value=1,
+        
+        with st.form("Predict"):
+            c1, c2, c3 = col1
+                
+            with c1:
+                age = st.number_input('Age', min_value=1,
                                           max_value=18, value=10)
 
-                    gender = st.selectbox('Gender', options=["Male", "Female"], index=0)
-                    gender_code = 0 if gender == "Male" else 1  # 根据性别选择设置性别代码
-
-                    
-                    max_BG = st.number_input('Maximum Blood Glucose', min_value=0,
+                gender = st.selectbox('Gender', options=["Male", "Female"], index=0)
+                gender_code = 0 if gender == "Male" else 1  # 根据性别选择设置性别代码
+                  
+                max_BG = st.number_input('Maximum Blood Glucose', min_value=0,
                                                      max_value=30.0, value=0)
 
-                with c2:
-                    min_BG = st.number_input('Minimum Blood Glucose', min_value=0,
+            with c2:
+                min_BG = st.number_input('Minimum Blood Glucose', min_value=0,
                                                      max_value=30.0, value=0)             
 
-                    mean_BG_24h = st.number_input('Mean Blood Glucose in Previous 24h', min_value=0,
+                mean_BG_24h = st.number_input('Mean Blood Glucose in Previous 24h', min_value=0,
                                                max_value=30.0, value=0)
 
-                    Num_Hypo = st.number_input('Number of Hypoglycemia Episodes', min_value=0,
+                Num_Hypo = st.number_input('Number of Hypoglycemia Episodes', min_value=0,
                                                max_value=100, value=0)
 
-                with c3:
-                    Num_Hyper = st.number_input('Number of Hyperglycemia Episodes', min_value=0,
+            with c3:
+                Num_Hyper = st.number_input('Number of Hyperglycemia Episodes', min_value=0,
                                                max_value=100, value=0)                    
                     
-                    P1_BG = st.number_input('Previous Blood Glucose Level', min_value=0,
+                P1_BG = st.number_input('Previous Blood Glucose Level', min_value=0,
                                                      max_value=30.0, value=0)             
 
-                    P2_BG = st.number_input('Second Previous Blood Glucose Level', min_value=0,
+                P2_BG = st.number_input('Second Previous Blood Glucose Level', min_value=0,
                                                max_value=30.0, value=0)
                     
-                predict_button = st.form_submit_button("Predict 🚀")
+            predict_button = st.form_submit_button("Predict 🚀")
 
 
 
