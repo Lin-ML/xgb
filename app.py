@@ -174,9 +174,10 @@ def run():
             if predict_button:
                 gender_code = 0 if gender == "Male" else 1  # 根据性别
                 new_data = [age, max_BG, min_BG, mean_BG_24h, Num_Hypo, Num_Hyper, P1_BG, P2_BG, gender_code]
+                dtest = xgb.DMatrix(new_data)  # 转换为 DMatrix     
                 with st.spinner(text='Predict The Value..'):
 
-                    predicted_value = model.predict([new_data])[0]
+                    predicted_value = model.predict([dtest])[0]
                     sleep(1.2)
 
                     st.image("imgs/heartbeat.png", caption="", width=100)
