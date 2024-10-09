@@ -143,7 +143,7 @@ def run():
         st.write("")
 
     with content:
-        col1 = st.columns([7, 5])
+        col1 = st.columns([7, 5,3])
         
         with st.form("Predict"):
             c1, c2, c3 = col1
