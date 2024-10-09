@@ -173,7 +173,7 @@ def run():
                 # Appending All Data
             if predict_button:
                 gender_code = 0 if gender == "Male" else 1  # 根据性别
-                new_data = [age, max_BG, min_BG, mean_BG_24h, Num_Hypo, Num_Hyper, P1_BG, P2_BG, gender_code]
+                new_data = np.array([[age, max_BG, min_BG, mean_BG_24h, Num_Hypo, Num_Hyper, P1_BG, P2_BG, gender_code]]) 
                 dtest = xgb.DMatrix(new_data)  # 转换为 DMatrix     
                 with st.spinner(text='Predict The Value..'):
 
