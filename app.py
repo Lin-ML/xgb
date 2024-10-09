@@ -83,8 +83,9 @@ def run():
 
         div[data-baseweb=select]>div{
             cursor: pointer;
-            background-color: #111;
+            background-color: #fff;
             border: 1px solid #555;
+            color: #000;
         }
         div[data-baseweb=select]>div:hover{
             border-color: #B72F39
@@ -149,34 +150,20 @@ def run():
             c1, c2, c3 = col1
                 
             with c1:
-                age = st.number_input('Age', min_value=1,
-                                          max_value=18, value=10)
-
+                age = st.number_input('Age', min_value=1, max_value=18, value=10, step=1.0)
                 gender = st.selectbox('Gender', options=["Male", "Female"], index=0)
-                gender_code = 0 if gender == "Male" else 1  # 根据性别选择设置性别代码
-                  
-                max_BG = st.number_input('Maximum Blood Glucose', min_value=0,
-                                                     max_value=30.0, value=0)
+                max_BG = st.number_input('Maximum Blood Glucose', min_value=0.0, max_value=30.0, value=0.0, step=0.1)
 
             with c2:
-                min_BG = st.number_input('Minimum Blood Glucose', min_value=0,
-                                                     max_value=30.0, value=0)             
-
-                mean_BG_24h = st.number_input('Mean Blood Glucose in Previous 24h', min_value=0,
-                                               max_value=30.0, value=0)
-
-                Num_Hypo = st.number_input('Number of Hypoglycemia Episodes', min_value=0,
-                                               max_value=100, value=0)
+                min_BG = st.number_input('Minimum Blood Glucose', min_value=0.0, max_value=30.0, value=0.0, step=0.1)
+                mean_BG_24h = st.number_input('Mean Blood Glucose in Previous 24h', min_value=0.0, max_value=30.0, value=0.0, step=0.1)
+                Num_Hypo = st.number_input('Number of Hypoglycemia Episodes', min_value=0, max_value=100, value=0, step=1)
 
             with c3:
-                Num_Hyper = st.number_input('Number of Hyperglycemia Episodes', min_value=0,
-                                               max_value=100, value=0)                    
-                    
-                P1_BG = st.number_input('Previous Blood Glucose Level', min_value=0,
-                                                     max_value=30.0, value=0)             
+                Num_Hyper = st.number_input('Number of Hyperglycemia Episodes', min_value=0, max_value=100, value=0, step=1)
+                P1_BG = st.number_input('Previous Blood Glucose Level', min_value=0.0, max_value=30.0, value=0.0, step=0.1)
+                P2_BG = st.number_input('Second Previous Blood Glucose Level', min_value=0.0, max_value=30.0, value=0.0, step=0.1)
 
-                P2_BG = st.number_input('Second Previous Blood Glucose Level', min_value=0,
-                                               max_value=30.0, value=0)
                     
             predict_button = st.form_submit_button("Predict 🚀")
 
@@ -184,7 +171,7 @@ def run():
 
                 # Appending All Data
             if predict_button:
-    # 收集输入的所有数据
+                gender_code = 0 if gender == "Male" else 1  # 根据性别
                 new_data = [age, max_BG, min_BG, mean_BG_24h, Num_Hypo, Num_Hyper, P1_BG, P2_BG, gender_code]
                 with st.spinner(text='Predict The Value..'):
 
@@ -196,6 +183,4 @@ def run():
 
 
 run()
-
-
 
