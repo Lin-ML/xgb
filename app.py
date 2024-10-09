@@ -174,6 +174,18 @@ def run():
             if predict_button:
                 gender_code = 0 if gender == "Male" else 1  # 根据性别
                 new_data = np.array([[age, max_BG, min_BG, mean_BG_24h, Num_Hypo, Num_Hyper, P1_BG, P2_BG, gender_code]]) 
+               
+                feature_names = ["Age",
+                                 "Maximum Blood Glucose",
+                                 "Minimum Blood Glucose",
+                                 "Mean Blood Glucose in Previous 24h",
+                                 "Number of Hypoglycemia Episodes",
+                                 "Number of Hyperglycemia Episodes",
+                                 "Previous Blood Glucose Level",
+                                 "Second Previous Blood Glucose Level",
+                                 "Gender"]
+                
+       
                 dtest = xgb.DMatrix(new_data)  # 转换为 DMatrix     
                 with st.spinner(text='Predict The Value..'):
 
