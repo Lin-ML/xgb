@@ -150,7 +150,7 @@ def run():
             c1, c2, c3 = col1
                 
             with c1:
-                age = st.number_input('Age', min_value=1, max_value=18, value=10, step=1.0)
+                age = st.number_input('Age', min_value=1, max_value=18, value=10, step=1)
                 gender = st.selectbox('Gender', options=["Male", "Female"], index=0)
                 max_BG = st.number_input('Maximum Blood Glucose', min_value=0.0, max_value=30.0, value=0.0, step=0.1)
 
