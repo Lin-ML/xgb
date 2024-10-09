@@ -1,0 +1,13 @@
+
+pickleshare==0.7.5
+streamlit==1.30.0
+joblib==1.4.2
+numpy==1.26.4
+pandas==2.1.4
+matplotlib==3.8.0
+xgboost==2.1.1
+scikit-leam==1.5.1
+shap==0.45.1
+matplotlib==3.8.0
+seaborn==3.8.0
+optuna==4.0.0
