@@ -108,7 +108,7 @@ def run():
                     sleep(1.2)
 
                     #st.image("imgs/heartbeat.png", caption="", width=100)
-                    conf = (round(predicted_value-0.32*2, 2), round(predicted_value-0.32*2, 2))
+                    conf = (round(predicted_value-0.32*2, 2), round(predicted_value+0.32*2, 2))
                     st.markdown(f'<p style="font-size: 30px; font-weight: bold; text-align: center;">Predicted Result Value: <span style="color: red;">{predicted_value:.2f}{str(conf)}</span>mmol/L</p>', unsafe_allow_html=True)
             else:
                 with st.expander("**Current input values**", True):
